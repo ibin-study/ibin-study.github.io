@@ -750,12 +750,13 @@ $btn-mb: 0.5rem;
     font-size: 1.75rem;
     line-height: 1.2;
     letter-spacing: 0.25px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(10, 0, 66, 0.9);
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
 
     a {
       @extend %clickable-transition;
+      color: rgba(255, 255, 255, 1);
       @extend %sidebar-link-hover;
     }
   }
@@ -763,7 +764,7 @@ $btn-mb: 0.5rem;
   .site-subtitle {
     font-size: 95%;
     /*color: var(--sidebar-muted-color); */
-    color: rgba(200, 200, 200, 0.9);
+    color: rgba(25, 25, 25, 0.9);
     margin-top: 0.25rem;
     word-spacing: 1px;
     -webkit-user-select: none;
