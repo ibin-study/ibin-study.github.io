@@ -22,7 +22,9 @@ Visual studio Code에서 Markdown Preview도 지원한다.
 
 - <u>밑줄</u>
 
-- <u>~~***중복사용도 가능!***~~</u>
+- ***~~<u>중복사용도 가능!</u>~~***
+
+- <u>***~~태그를 먼저 쓰면 적용이 안된다!~~***</u>
 
 ---
 #### 참고
@@ -100,6 +102,10 @@ Github 홈페이지 : <https://github.com>
 
 ---
 ## 이미지 삽입
+
 내 아바타 사진
 
-![내 아바타 사진](https://github.com/ibin-study/ibin-study.github.io/blob/main/assets/img/profile.jpg)
+![내 아바타 사진 링크로](https://raw.githubusercontent.com/ibin-study/ibin-study.github.io/main/assets/img/profile.jpg){: w="300" h="200" }
+
+![내 아바타 사진 파일경로로](/assets/img/profile.jpg){: w="300" h="200" }
+
