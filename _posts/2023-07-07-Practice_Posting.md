@@ -106,6 +106,7 @@ Github 홈페이지 : <https://github.com>
 내 아바타 사진
 
 ![내 아바타 사진 링크로](https://raw.githubusercontent.com/ibin-study/ibin-study.github.io/main/assets/img/profile.jpg){: w="300" h="200" }
+_링크로 사진 삽입_
 
 ![내 아바타 사진 파일경로로](/assets/img/profile.jpg){: w="300" h="200" }
-
+_파일 경로로 사진 삽입_
