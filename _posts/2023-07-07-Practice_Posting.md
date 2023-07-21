@@ -1,8 +1,8 @@
 ---
-title: 포스팅 연습하기
-date: 2023-07-07 15:17:00 +0900
-categories: [TOP_CATEGORIE, SUB_CATEGORIE]
-tags: [practice]     # TAG names should always be lowercase
+title: Markdown 포스팅 연습하기
+date: 2023-07-21 14:00:00 +0900
+categories: [Github, Markdown]
+tags: [Markdown]     # TAG names should always be lowercase
 ---
 
 # VS Code로 마크다운 문서 작성하기
@@ -26,8 +26,8 @@ Visual studio Code에서 Markdown Preview도 지원한다.
 
 - <u>***~~태그를 먼저 쓰면 적용이 안된다!~~***</u>
 
----
-#### 참고
+
+### 참고
 Enter는 
 한번이 아닌
 
@@ -64,13 +64,13 @@ print("Hello World!")
 - "*,+,-" 로 가능!
 
 ---
-## 할 일
+## Todo list
 
 - [ ] 안했음!
 - [x] 했음!
 
 ---
-## 설명
+## 설명 형식
 
 Sun
   : the star around which the earth orbits
@@ -85,6 +85,7 @@ Sun
 
 ---
 ## 링크
+
 Github 홈페이지 : <https://github.com>
 
 [Github](https://github.com)
@@ -110,3 +111,77 @@ _링크로 사진 삽입_
 
 ![내 아바타 사진 파일경로로](/assets/img/profile.jpg){: w="300" h="200" }
 _파일 경로로 사진 삽입_
+
+---
+## 표 만들기
+
+|제목|내용|설명|
+|------|---|---|
+|테스트1|테스트2|테스트3|
+|테스트1|테스트2|테스트3|
+
+### 텍스트 정렬
+> :문자로 표의 텍스트를 정렬할 수도 있음
+
+|제목|내용|설명|
+|:------|---:|:---:|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+|왼쪽정렬|오른쪽정렬|중앙정렬|
+
+### 셀 확장
+
+|제목|내용|설명|
+|:---|:---:|---:|
+||중앙에서확장||
+|||오른쪽에서 확장|
+|왼쪽에서확장||
+
+---
+## 글씨 편집
+
+![RGB 색상표](/assets/img/RGB_colortable.png)
+_RGB 색상표_
+
+### 글씨에 색깔 넣기
+
+<span style="color:red">빨간색</span>
+<span style="color:blue">파란색</span>
+<span style="color:green">초록색</span> 등등등...
+
+### 형광펜
+
+<span style="background-color:red">빨간색</span> 
+<span style="background-color:blue">파란색</span>
+<span style="background-color:green">초록색</span>
+
+### 폰트 사이즈 조절
+
+<span style="font-size:300%">폰트 사이즈 300%</span> 
+
+<span style="font-size:100%">폰트 사이즈 100%</span> 
+
+<span style="font-size:50%">폰트 사이즈 50%</span> 
+
+### 동시에 적용
+
+```markdown
+<span style="~; ~~; ~~~;">--내용--</span> 형태로 사용하면 된다.
+```
+
+<span style="color:red; background-color:yellow; font-size:150%">
+이런식으로 동시에 적용할수도 있다!!
+</span>
+
+### <span style="color:red; background-color:yellow; font-size:150%">제목에도 적용가능!!</span>
+
+---
+## Emoji 활용
+🙂 😱 ⏰ 👍 👍🏻 👍🏼 👎 🖕
+
+> 이렇게 copy & paste로 사용은 되나 markdown 문법(ex. :+1:)으로는 되지 않았다.
+
+> 찾아보니 jekyll에서 emoji 사용을 위해서는 플러그인 설치가 필요하다.
+
+[jekyll/jemoji](https://github.com/jekyll/jemoji)
+
+:fu:
