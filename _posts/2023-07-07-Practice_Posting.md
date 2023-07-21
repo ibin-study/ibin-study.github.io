@@ -184,4 +184,6 @@ _RGB 색상표_
 
 [jekyll/jemoji](https://github.com/jekyll/jemoji)
 
-:fu:
+그냥 ```window키 + .```을 눌러서 나오는 이모지를 사용하는것이 편리할 것 같다...🤔
+
+추가적으로 필요한건 copy & paste 하는걸로...🤷‍♂️
