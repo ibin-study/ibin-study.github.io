@@ -1,5 +1,5 @@
 ---
-title: Markdown 포스팅 연습하기
+title: "[Markdown] Markdown 포스팅 연습하기"
 date: 2023-07-21 14:00:00 +0900
 categories: [Github, Markdown]
 tags: [Markdown]     # TAG names should always be lowercase

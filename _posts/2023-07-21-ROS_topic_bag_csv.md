@@ -1,7 +1,7 @@
 ---
 title: "[ROS] Rosbag record & Rostopic to csv"
 date: 2023-07-21 14:00:00 +0900
-categories: [ROS, ROsbag]
+categories: [ROS, Rosbag]
 tags: [ROS, record]     # TAG names should always be lowercase
 ---
 
