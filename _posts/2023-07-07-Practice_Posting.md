@@ -33,7 +33,8 @@ Enter는
 
 두번쳐야 줄바꿈이 된다
 
-원래는 띄어쓰기 두번으로도 가능하나 Chirpy Theme에서는 지원하지 않는다.
+~~원래는 띄어쓰기 두번으로도 가능하나 Chirpy Theme에서는 지원하지 않는다.~~  
+문장 끝에 두번 띄어쓰기로도 줄바꿈이 가능하다.
 
 ---
 줄 삽입
@@ -139,7 +140,7 @@ _파일 경로로 사진 삽입_
 ---
 ## 글씨 편집
 
-![RGB 색상표](/assets/img/RGB_colortable.png)
+![RGB 색상표](/assets/img/post_img/RGB_colortable.png)
 _RGB 색상표_
 
 ### 글씨에 색깔 넣기
