@@ -51,7 +51,7 @@ ubuntu 18.04의 경우 기본적으로 **python >> Python 2.7.17, python3 >> Pyt
 ## 설치한 버전 등록
 > **python** 명령어에 등록  
 ```$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python[version] [지정 번호]```  
-> **python3** 명령어에 등록
+> **python3** 명령어에 등록  
 ```$ sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python[version] [지정 번호]```
 
 필자의 경우 pip3로 설치 과정에서 발생한 오류이기 때문에 python3의 버전을 수정해주어야 한다.  
