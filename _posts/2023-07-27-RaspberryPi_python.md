@@ -72,6 +72,6 @@ _pip3 install adafruit-circuitpython-bno055 명령어 정상실행_
 
 ---
 ## 참고자료
-[[Raspberry Pi] 리눅스 파이썬3 설치 및 기본 사용 버전 변경하기](https://angelplayer.tistory.com/219)
-[[에러 해결] 'SyntaxError: future feature annotations is not defined'](https://beausty23.tistory.com/222) 
-[Stack Overflow - SyntaxError: future feature annotations is not defined](https://stackoverflow.com/questions/70515194/syntaxerror-future-feature-annotations-is-not-defined)
+[[Raspberry Pi] 리눅스 파이썬3 설치 및 기본 사용 버전 변경하기](https://angelplayer.tistory.com/219)  
+[[에러 해결] 'SyntaxError: future feature annotations is not defined'](https://beausty23.tistory.com/222)  
+[Stack Overflow - SyntaxError: future feature annotations is not defined](https://stackoverflow.com/questions/70515194/syntaxerror-future-feature-annotations-is-not-defined)  
