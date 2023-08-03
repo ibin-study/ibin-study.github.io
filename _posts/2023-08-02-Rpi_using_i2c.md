@@ -54,14 +54,52 @@ pip3 install adafruit-circuitpython-bno055
 ```  
 로 설치가 필요한데 이 과정에서 **SyntaxError: future feature annotations is not defined** 에러가 발생했다.
 따라서 이를 해결하기 위해 Python3의 버전을 바꿔주었는데 관련 내용은 [이전 포스팅](https://ibin-study.github.io/posts/RaspberryPi_python/)을 참고하기 바란다.
-> 재부팅 시에는 바꾼 버전이 다시 초기화 되기 때문에 다시 설정해주어야 한다.
 
+이제 라즈베리파이와 BNO055 모듈을 선으로 연결해 주어야 한다.
 
+## 6. Raspberry Pi와 모듈 선으로 연결
+필자의 경우 브래드보드를 사용해 연결해 주었다. 연결하는 방법은 어렵지 않다. 아래의 pinmap을 참고해서  
+**3.3V는 VIN, GND 는 GND, SCL은 SCL, SDA는 SDA**에 연결해주면 된다. (당연한 말이네...🤔)
 
-
-## Raspberry Pi4 Pin map
+### Raspberry Pi4 Pin map
 ![RPi Pinmap](/assets/img/post_img/RPi-GPIO-Pinout.png)
 _Raspberry Pi Pinmap [출처: [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)]_
+
+> ❕ Pinmap에서 처음에는 4, 6번 핀에 팬이 꽃혀있기도 했고 비슷한 위치에 선을 모으기 위해 *(17, 20에 VIN, GND 연결)* 
+**27, 28번 핀에 SDA, SCL핀을 연결**했었는데 계속 장치를 인식을 못해서 **3, 5번 핀에 연결**하니 정상적으로 인식했다. 
+27, 28도 I2C의 일종이나 다른 기능이 있는 것 같다...
+
+### 연결된 장치 확인
+전에 설치해둔 i2c-tools를 활용해 라즈베리파이와 연결된 i2c 장치를 확인해보자.  
+```$ i2cdetect -y 1```  
+![RPi Pinmap](/assets/img/post_img/RPi-i2cdetect.png)
+_연결된 장치 확인_  
+정상적으로 연결된 경우 위 사진 처럼 해당 칸에 16진수 형식으로 주소가 표시된다.  
+사진의 경우 **"0x28"** 이라는 것을 알 수 있다.
+
+### 코드 작성  
+
+```python
+import board
+import busio
+# from adafruit_extended_bus import ExtendedI2C as I2C
+import adafruit_bno055
+
+i2c = board.I2C()
+sensor = adafruit_bno055.BNO055_I2C(i2c)
+
+while True:
+    print('Temperature: {} degrees C'.format(sensor.temperature))
+    # print('Accelerometer (m/s^2): {}'.format(sensor.accelerometer))
+    # print('Magnetometer (microteslas): {}'.format(sensor.magnetometer))
+    # print('Gyroscope (deg/sec): {}'.format(sensor.gyroscope))
+    print('Euler angle: {}'.format(sensor.euler))
+    print('Quaternion: {}'.format(sensor.quaternion))
+    print('Linear acceleration (m/s^2): {}'.format(sensor.linear_acceleration))
+    print('Gravity (m/s^2): {}'.format(sensor.gravity))
+    print()
+```
+
 
 
 
