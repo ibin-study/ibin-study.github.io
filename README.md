@@ -2,6 +2,9 @@
 
   # Chirpy Jekyll Theme
 
+  <span style="font-size:200%; background-color:LightSkyBlue">[--My Blog Link--](https://ibin-study.github.io/)</span>
+
+
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
   [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
