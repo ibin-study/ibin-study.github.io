@@ -72,39 +72,62 @@ _Raspberry Pi Pinmap [출처: [Raspberry Pi Documentation](https://www.raspberry
 ### 연결된 장치 확인
 전에 설치해둔 i2c-tools를 활용해 라즈베리파이와 연결된 i2c 장치를 확인해보자.  
 ```$ i2cdetect -y 1```  
-![RPi Pinmap](/assets/img/post_img/RPi-i2cdetect.png)
+![RPi device config](/assets/img/post_img/RPi-i2cdetect.png)
 _연결된 장치 확인_  
 정상적으로 연결된 경우 위 사진 처럼 해당 칸에 16진수 형식으로 주소가 표시된다.  
 사진의 경우 **"0x28"** 이라는 것을 알 수 있다.
 
-### 코드 작성  
+### 테스트 코드 작성  
 
 ```python
 import board
-import busio
-# from adafruit_extended_bus import ExtendedI2C as I2C
 import adafruit_bno055
+import time
 
-i2c = board.I2C()
+i2c = board.I2C() # uses board.SCL and board.SDA
 sensor = adafruit_bno055.BNO055_I2C(i2c)
+# sensor.mode = adafruit_bno055.M4G_MODE
 
 while True:
     print('Temperature: {} degrees C'.format(sensor.temperature))
-    # print('Accelerometer (m/s^2): {}'.format(sensor.accelerometer))
-    # print('Magnetometer (microteslas): {}'.format(sensor.magnetometer))
-    # print('Gyroscope (deg/sec): {}'.format(sensor.gyroscope))
+    print('Accelerometer (m/s^2): {}'.format(sensor.acceleration))
+    print('Magnetometer (microteslas): {}'.format(sensor.magnetic))
+    print('Gyroscope (deg/sec): {}'.format(sensor.gyro))
     print('Euler angle: {}'.format(sensor.euler))
     print('Quaternion: {}'.format(sensor.quaternion))
     print('Linear acceleration (m/s^2): {}'.format(sensor.linear_acceleration))
     print('Gravity (m/s^2): {}'.format(sensor.gravity))
+    print('Sensor mode : {}'.format(sensor.mode))
+    print(type(sensor.quaternion))
     print()
+
+    time.sleep(1)
+```
+> 출력값  
+```output
+Temperature: 28 degrees C
+Accelerometer (m/s^2): (-0.11, -0.86, 9.41)
+Magnetometer (microteslas): (1.0625, -1.0625, 0.0)
+Gyroscope (deg/sec): (0.0, 0.0, 0.0)
+Euler angle: (359.9375, -0.625, 5.1875)
+Quaternion: (0.99896240234375, -0.04571533203125, 0.00592041015625, 0.0)
+Linear acceleration (m/s^2): (0.0, 0.02, -0.35000000000000003)
+Gravity (m/s^2): (-0.11, -0.89, 9.76)
+Sensor mode : 12  
 ```
 
+위와 같이 간단하게 IMU 신호를 잘 받는지 테스트 하기 위한 코드를 만들 수 있다. 7번행에 주석처리한 sensor mode의 경우
+뒤의 **M4G_MODE**를 바꿔서 자신이 활용하고 싶은 모드로 변경이 가능하다. Default값은 **NDOF 모드**이며 다른 모드들의 경우 아래와 같다.  
 
+![BNO055 modes](/assets/img/post_img/BNO055_modes.png)
+_BNO055 지원 모드 **(X : On, - : Off)**_  
+
+보다 더 자세한 내용은 [Datasheet](https://cdn-shop.adafruit.com/datasheets/BST_BNO055_DS000_12.pdf)의 3.3을 참고하길 바란다.  
 
 
 ## 참고자료
 [Github - Acafruit_CircuitPython_BNO055](https://github.com/adafruit/Adafruit_CircuitPython_BNO055)  
+[Adafruit BNO055 Library - API](https://docs.circuitpython.org/projects/bno055/en/latest/api.html)
 [라즈베리파이 I2C 사용방법](https://m.blog.naver.com/chgy2131/221922893758)  
 [라즈베리파이 mpu6050 가속도 센서 제어하는 방법](https://hoho325.tistory.com/224)  
 
