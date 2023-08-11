@@ -16,7 +16,14 @@ Python3 버전을 새로 깐 후에 기본 버전을 변경하니 Numpy가 설�
 ```shell
 pip3 install --upgrade pip
 ```
-위 명령어를 입력하니 pip3가 업그레이드가 되었고, 다시 ```pip3 install numpy``` 실행 시 정상적으로 설치가 되었다.
+위 명령어를 입력하니 pip3가 업그레이드가 되었고, 다시 ```pip3 install numpy``` 실행 시 경고문과 함께 설치가 되었다.  
+>**WARNING: The scripts f2py, f2py3 and f2py3.7 are installed in '/home/ubuntu/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.**
+
+따라서 ```vim ~/.bashrc```로 에디터를 열어서 아래 경로를 추가해 주었다.
+```shell
+export PATH=/home/ubuntu/.local/bin/:$PATH
+```
 
 
 ## 참고자료
