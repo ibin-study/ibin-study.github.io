@@ -1,7 +1,7 @@
 ---
 title: "Data 단위, 전송속도 - bit, byte, bps, baud rate... "
 date: 2023-07-31 17:00:00 +0900
-categories: [Communication Protocol]
+categories: [Communication Protocol, Basic]
 tags: [Communication Protocol]  # TAG names should always be lowercase
 ---
 
@@ -13,9 +13,11 @@ tags: [Communication Protocol]  # TAG names should always be lowercase
 
 ### Bit
 전기적 신호로 의미를 전달할 수 있는 최소 단위는 ON/OFF 이다.
-컴퓨터의 프로세서, 즉 반도체에서는 전류를 흘렸다가 끊었다가 하면서 정보를 처리하는데 전류가 흐르면 **1(ON, True)**, 끊어지면 **0(OFF, False)**으로 제어한다.
+컴퓨터의 프로세서, 즉 반도체에서는 전류를 흘렸다가 끊었다가 하면서 정보를 처리하는데 전류가 흐르면 **1(ON, True)**,
+끊어지면 **0(OFF, False)**으로 제어한다.
 따라서 컴퓨터에서는 이러한 트랜지스터를 통해 전기 신호로 표현된 정보를 2진수의 형태로 처리하는 것이다.
 이렇게 0 or 1 하나를 **Bit**라고 한다. 
+
 Bit
   : Binary Digit의 줄임말. 정보를 나타내는 최소단위이며, 컴퓨터 용량이나 프로그램 처리 능력의 최소단위로 사용한다.
 
@@ -55,14 +57,28 @@ Byte 이후부터는 만, 억, 조 단위로 올라가는 십진법과 유사하
 
 
 ## Bit rate??
-Bit Rate
-  : 초당 얼마나 많은 데이터 비트(1 or 0)를 전송(처리)할 수 있는가를 나타낸다. 자주 사용하는 BPS(Bit Per Second)는 초당 보낼 수 있는 비트의 수를 나타낸다.
+Bit Rate (BPS)
+  : **초당 얼마나 많은 데이터 비트(1 or 0)를 전송(처리)할 수 있는가**를 나타낸다. 흔히 사용하는 BPS(Bit Per Second)는 초당 보낼 수 있는 비트의 수를 나타낸다.
   여기에 킬로, 메가, 기가, 테라와 같은 SI 접두어가 붙게 된다.
 
-## Baud rate??
+## Character rate??
+Character rate (CPS)
+  : **초당 전송(처리)할 수 있는 바이트의 수**를 말한다. 즉, 8 bps는 1 cps와 같다. 
 
+## Baud rate??
 Baud Rate
-  : c
+  : "보 레이트" 라고 발음하며 **초당 얼마나 많은 심볼(Symbol, 의미있는 데이터 묶음)을 전송할 수 있는가**를 나타내는 말이다.
+  보(baud, 단위 기호 "Bd")는 초당 펄스 수 또는 초당 심볼 수를 말하며, 디지털로 변조된 신호 또는 전송로 부호(line code)의
+  통신 매체에 매초 몇 번의 뚜렷한 심볼 변화(혹은 시그널링 동작)가 발생하는지를 나타낸다.  
+  
+보라는 용어는 가끔 비트 속도를 의미하는 용도로 잘못 사용되기도 하는데 예전에는 오래된 모뎀에서 bps와 baud rate가 서로 같았기 때문이다.
+그러나 통신 기술이 발전하면서 1개의 심볼에 여러 비트를 실어 보낼 수 있게 되면서 두 속도 단위는 달라지게 된다.
+
+만약 하나의 신호 요소가 2bit로 구성되어 있다면 Baud rate는 bps의 절반이 된다. 신호를 1 bit로 여긴다면 bps와 baud rate는 같은 단위가 된다. 
+ex) 9600 baud rate = 19200 bps
+
+심볼이란 **의미있는 데이터 묶음**을 말하는데 시리얼 통신의 경우 data bit가 8 bit를 사용하므로 이것이 하나의 심볼이 된다. (ASCII code)
+따라서 이 경우 1개의 심볼은 1개의 character, 8개의 bit 정보와 같다.
 
 
 
@@ -72,3 +88,4 @@ Baud Rate
 [컴퓨터와 2진법의 관계](https://all-young.tistory.com/6)  
 [위키백과 - 비트레이트](https://ko.wikipedia.org/wiki/%EB%B9%84%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8)  
 [Bit Rate와 Baud Rate의 정의](https://m.blog.naver.com/gmqgufrn/220862079486)  
+[보 (통신 단위) - 위키백과](https://ko.wikipedia.org/wiki/%EB%B3%B4_(%ED%86%B5%EC%8B%A0_%EB%8B%A8%EC%9C%84))
