@@ -1,154 +1,232 @@
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<script/>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>http://localhost:7777/posts/GPS_knowledge/</loc>
-<lastmod>2023-07-27T15:12:24+09:00</lastmod>
+  <loc>https://ibin-study.github.io/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Practice_Posting/</loc>
-<lastmod>2023-07-27T15:12:24+09:00</lastmod>
+  <loc>https://ibin-study.github.io/categories/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/ROS_topic_bag_csv/</loc>
-<lastmod>2023-07-21T15:19:00+09:00</lastmod>
+  <loc>https://ibin-study.github.io/tags/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/RaspberryPi_python/</loc>
-<lastmod>2023-08-02T17:06:50+09:00</lastmod>
+  <loc>https://ibin-study.github.io/archives/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Communication_i2c/</loc>
-<lastmod>2023-07-31T10:45:39+09:00</lastmod>
+  <loc>https://ibin-study.github.io/about/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Communication_uart/</loc>
-<lastmod>2023-08-02T17:06:50+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Error_github_add_origin/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Communication_rate/</loc>
-<lastmod>2023-08-23T15:12:45+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Error_pip3_numpy/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Rpi_using_i2c/</loc>
-<lastmod>2023-08-04T17:35:03+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Error_apt_pkg/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Error_apt_pkg/</loc>
-<lastmod>2023-08-04T17:35:03+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Rpi_using_i2c/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Error_pip3_numpy/</loc>
-<lastmod>2023-08-11T14:05:24+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Communication_rate/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/posts/Error_github_add_origin/</loc>
-<lastmod>2023-08-16T17:00:00+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Communication_uart/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/</loc>
-<lastmod>2023-08-23T16:01:20+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Communication_i2c/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/</loc>
-<lastmod>2023-08-23T16:01:20+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/RaspberryPi_python/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/archives/</loc>
-<lastmod>2023-08-23T16:01:20+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/ROS_topic_bag_csv/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/about/</loc>
-<lastmod>2023-08-23T16:01:20+09:00</lastmod>
+  <loc>https://ibin-study.github.io/posts/Practice_Posting/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/</loc>
+  <loc>https://ibin-study.github.io/page2/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/sensors/</loc>
+  <loc>https://ibin-study.github.io/tags/communication-protocol/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/gnss/</loc>
+  <loc>https://ibin-study.github.io/tags/error/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/markdown/</loc>
+  <loc>https://ibin-study.github.io/tags/trouble-shooting/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/ros/</loc>
+  <loc>https://ibin-study.github.io/tags/i2c/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/record/</loc>
+  <loc>https://ibin-study.github.io/tags/gnss/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/on-board-computer/</loc>
+  <loc>https://ibin-study.github.io/tags/linux/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/linux/</loc>
+  <loc>https://ibin-study.github.io/tags/markdown/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/communication-protocol/</loc>
+  <loc>https://ibin-study.github.io/tags/on-board-computer/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/i2c/</loc>
+  <loc>https://ibin-study.github.io/tags/raspberry-pi/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/uart/</loc>
+  <loc>https://ibin-study.github.io/tags/record/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/raspberry-pi/</loc>
+  <loc>https://ibin-study.github.io/categories/communication-protocol/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/trouble-shooting/</loc>
+  <loc>https://ibin-study.github.io/categories/basic/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/tags/error/</loc>
+  <loc>https://ibin-study.github.io/categories/i2c/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/sensors/</loc>
+  <loc>https://ibin-study.github.io/categories/uart/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/gps/</loc>
+  <loc>https://ibin-study.github.io/categories/github/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/github/</loc>
+  <loc>https://ibin-study.github.io/categories/markdown/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/markdown/</loc>
+  <loc>https://ibin-study.github.io/categories/on-board-computer/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/ros/</loc>
+  <loc>https://ibin-study.github.io/categories/linux/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/rosbag/</loc>
+  <loc>https://ibin-study.github.io/categories/ros/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/on-board-computer/</loc>
+  <loc>https://ibin-study.github.io/categories/rosbag/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/linux/</loc>
+  <loc>https://ibin-study.github.io/categories/sensors/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/communication-protocol/</loc>
+  <loc>https://ibin-study.github.io/categories/gps/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/i2c/</loc>
+  <loc>https://ibin-study.github.io/categories/trouble-shooting/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/uart/</loc>
+  <loc>https://ibin-study.github.io/categories/error/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/basic/</loc>
+  <loc>https://ibin-study.github.io/tags/ros/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/trouble-shooting/</loc>
+  <loc>https://ibin-study.github.io/tags/sensors/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/categories/error/</loc>
+  <loc>https://ibin-study.github.io/tags/uart/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-<loc>http://localhost:7777/page2/</loc>
+  <loc>https://ibin-study.github.io/posts/GPS_knowledge/</loc>
+  <lastmod>2023-08-23T07:08:38+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
-<url>
-<loc>http://localhost:7777/googled8268dd1063af13b.html</loc>
-<lastmod>2023-08-23T15:55:17+09:00</lastmod>
-</url>
+
+
 </urlset>
