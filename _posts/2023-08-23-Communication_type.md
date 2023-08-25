@@ -43,7 +43,7 @@ _Parallel 통신에서 Timing skew(Clock skew)_
 - **<span style="color:Red">LVDS</span>** 라는 새로운 기술의 발명으로 인해 직렬 통신의 데이터 전송 속도 향상과 제조 단가의 절감 달성
 
 > 💡 LVDS란??
->> Low Voltage Differential Signalling(저전압 차등 시그널링)  
+>> **Low Voltage Differential Signalling(저전압 차등 시그널링)**  
 저렴한 연선 구리케이블에 고속으로 동작이 가능한 전기적 신호 시스템을 말한다.  
 데이터를 낮은 전압과 적은 전위차로 전송해 데이터 송수신 속도를 향상하고 노이즈에 강하게 하고 전력 소모를 적게 하기 위한 통신방법이다.
 
@@ -62,18 +62,32 @@ _Parallel 통신에서 Timing skew(Clock skew)_
 ## 동기(Synchronous)식 통신 / 비동기(Asynchronous)식 통신
 동기식 통신과 비동기식 통신의 가장 큰 차이는 **클럭(clock) 신호의 유무**이다. 
 
-**<span style="background-color:Pink">동기식 통신</span>**은 동시에 시스템을 작동시키기 위해
-이러한 신호 주기로 보내겠다는 클럭신호에 따라서 그에 맞게 데이터를 전송하는 방법이다.
-따라서 data를 통신하기 위한 선 외에도 클럭 주기를 맞추기 위한 선이 하나 더 필요하다.  
+**<span style="background-color:Pink">동기식 통신</span>**은 두개의 시스템이 통신 시 시차가 있을 경우
+데이터를 잘못 해석할 수 있어서 타이밍을 맞춰 동시에 시스템을 작동시키기 위한 통신 방법이다.
+어떠한 신호 주기로 보내겠다는 클럭신호에 따라서 그에 맞게 데이터를 전송하기 때문에 data를 통신하기 위한 선 외에도
+**클럭 주기를 맞추기 위한 선이 하나 더 필요**하다.  
 연결된 장치 사이에는 지속적으로 클럭신호가 이동하고 있으며 데이터의 전송이 없을 때에도 클럭신호는 계속해서 주고 받는다.
 하나의 클럭마다 사용자가 정해놓은 일정한 데이터 비트를 송수신 하는 방식으로 데이터를 주고 받는다.  
-동기 통신의 경우 서로 start bit와 같은 신호가 필요없이 데이터만 보내면 되기 때문에 전송 속도가 빠르다.
+동기 통신의 경우 서로 start bit와 같은 신호 없이 데이터만 보내면 되기 때문에 전송 속도가 빠르다.  
+하지만 수신측에서 비트를 계산해야하고 버퍼 기억 장치를 내장하여야 하므로 가격이 비싸다는 단점이 있다.
+
+> 👀 동기식 통신 시스템 종류
+>>  **UART/USART** (Universal Synchronous and Asynchronous serial Receiver and Transmitter)  
+**SPI** (Serial Peripheral Interface)  
+[**I2C** (Inter-Integrated Circuit)](https://ibin-study.github.io/posts/Communication_i2c/)  
+
+
+
 
 **<span style="background-color:PowderBlue">비동기식 통신</span>**은 클럭신호를 보내지 않는다.
 대신 보낼 데이터가 있을 때 Start bit를 보낸 후 데이터를 전부 보낸 후에는 Stop bit를 보내게 된다.
 이러한 방식으로 인해 동기 통신에 비해 전송속도가 느리다.
 
+> 👀 비동기식 통신 시스템 종류
+>> RS-232C
 
+
+---
 ## 참고자료
 [[아두이노 강좌] 15. Serial 통신(1) - 시리얼 통신이란 무엇인가](https://blog.naver.com/yuyyulee/220301424499)  
 [RS-232, RS-422, RS-485 시리얼(직렬) 통신에 대해서 알아보자~!](https://www.dsun.kr/90)  
