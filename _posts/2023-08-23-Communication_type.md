@@ -1,6 +1,6 @@
 ---
 title: "통신 방식에 따른 분류 (serial/parallel, 동기/비동기...)"
-date: 2023-08-23 16:00:00 +0900
+date: 2023-08-31 11:00:00 +0900
 categories: [Communication Protocol, Basic]
 tags: [Communication Protocol]  # TAG names should always be lowercase
 ---
@@ -17,7 +17,7 @@ _Serial 통신과 Parallel 통신 예시_
 그러나 이렇게 적은 수의 신호선을 사용하기 때문에 저렴한 비용으로 통신을 할 수 있고, 단말 장치 역시 소형화가 가능하다.
 
 > 👀 Serial 통신 시스템 종류
->> **UART/USART** (Universal Synchronous and Asynchronous serial Receiver and Transmitter)  
+>> [**UART/USART** (Universal Synchronous and Asynchronous serial Receiver and Transmitter)](https://ibin-study.github.io/posts/Communication_uart/)    
 **SPI** (Serial Peripheral Interface)  
 [**I2C** (Inter-Integrated Circuit)](https://ibin-study.github.io/posts/Communication_i2c/)  
 **CAN**(Controller Area Network)  
@@ -44,8 +44,11 @@ _Parallel 통신에서 Timing skew(Clock skew)_
 
 > 💡 LVDS란??
 >> **Low Voltage Differential Signalling(저전압 차등 시그널링)**  
-저렴한 연선 구리케이블에 고속으로 동작이 가능한 전기적 신호 시스템을 말한다.  
-데이터를 낮은 전압과 적은 전위차로 전송해 데이터 송수신 속도를 향상하고 노이즈에 강하게 하고 전력 소모를 적게 하기 위한 통신방법이다.
+1994년에 소개되었으며, 컴퓨터에 널리 보급되면서, 고속 네트워크와 컴퓨터 버스의 형태로 자리잡았다.
+데이터를 낮은 전압과 적은 전위차로 전송해 데이터 송수신 속도 향상 및 잡음이 적게 하고 또한 전력 소모를 적게 하기 위한 통신방법이다.  
+![기본 LVDS 동작](/assets/img/post_img/Basic_LVDS_circuit_operation.png){: w="600" h="400" }
+_기본 LVDS 동작 [출처: [위키백과](https://ko.wikipedia.org/wiki/%EB%82%AE%EC%9D%80_%EC%A0%84%EC%95%95_%EC%B0%A8%EB%B6%84_%EC%8B%A0%ED%98%B8)]_  
+송신기에서 서로 다른 2개의 전압을 Receiver로 전송하고, Receiver에서 신호의 전압 차이를 비교해서 정보를 처리하는 방식이다.
 
 > 👀 Parallel 통신 시스템 종류
 >> 컴퓨터 주변 기기용 버스: [ISA](https://ko.wikipedia.org/wiki/ISA_%EB%B2%84%EC%8A%A4) ,
@@ -72,19 +75,35 @@ _Parallel 통신에서 Timing skew(Clock skew)_
 하지만 수신측에서 비트를 계산해야하고 버퍼 기억 장치를 내장하여야 하므로 가격이 비싸다는 단점이 있다.
 
 > 👀 동기식 통신 시스템 종류
->>  **UART/USART** (Universal Synchronous and Asynchronous serial Receiver and Transmitter)  
+>>  [**USART** (Universal Synchronous and Asynchronous serial Receiver and Transmitter)](https://ibin-study.github.io/posts/Communication_uart/)  
 **SPI** (Serial Peripheral Interface)  
 [**I2C** (Inter-Integrated Circuit)](https://ibin-study.github.io/posts/Communication_i2c/)  
-
-
+**I2S** (Integrated Interchip Sound)
 
 
 **<span style="background-color:PowderBlue">비동기식 통신</span>**은 클럭신호를 보내지 않는다.
-대신 보낼 데이터가 있을 때 Start bit를 보낸 후 데이터를 전부 보낸 후에는 Stop bit를 보내게 된다.
+대신 보낼 데이터가 있을 때 Start bit를 보낸 후 데이터를 전부 보낸 후에는 Stop bit를 보내게 된다. 따라서 스타트-스톱 전송이라고 불리기도 한다.
+주로 8비트정도 되는 작은 비트블럭의 앞 뒤에 문자의 시작과 끝을 알리는 Start bit, Stop bit를 붙여서 전송한다.
 이러한 방식으로 인해 동기 통신에 비해 전송속도가 느리다.
 
+![비동기식 통신의 구조](/assets/img/post_img/async_commu.png)
+_비동기식 통신의 구조 [출처: [통신 방식의 비교](https://powerdeng.tistory.com/11)]_
+
+> 💡 Parity Bit란??
+>> **정보의 전달 과정에서 오류가 생겼는지를 검사하기 위해 추가한 비트**  
+그림에서 볼 수 있듯이 전송하고자 하는 데이터의 끝에 1비트를 더해 전송하는 것으로 **홀수, 짝수 2가지종류의 Parity bit**가 있다.
+실제 보내고자 하는 데이터의 비트 중에서 1의 개수가 짝수가 되도록 정하는 것이 짝수 패리티, 홀수가 되도록 하는게 홀수 패리티 이다.  
+여기서 주의해야 할 점은 0이라서 짝수, 1이라서 홀수가 아닌 **전체 데이터 비트에서 1의 개수가 짝수 or 홀수가 되게 하는 것이라는 점**이다.
+예를 들자면 데이터 비트에서 1의 개수가 홀수개 있다면 짝수 패리티의 경우 패리티 비트를 1로 정한다는 것이다.  
+이러한 Parity bit로 수신된 데이터의 비트를 계산해 데이터에 오류가 발생했는지 여부를 알 수 있지만 오류를 수정할 수는 없다는 단점이 있다.  
+Parity bit는 주로 시리얼 통신의 거리가 상당히 멀 경우에 적용되는 경우가 많고 짧은 거리에서는 보통 Parity bit가 아닌
+Checksum 데이터를 추가하는 방법으로 데이터를 검증한다고 한다.
+
+
 > 👀 비동기식 통신 시스템 종류
->> RS-232C
+>> [**UART** (Universal Asynchronous serial Receiver and Transmitter)](https://ibin-study.github.io/posts/Communication_uart/) ,
+**LIN** (Local Interconnect Network)  
+RS-232C, RS-422, RS-485  
 
 
 ---
@@ -95,4 +114,6 @@ _Parallel 통신에서 Timing skew(Clock skew)_
 [병렬 통신 - 나무위키](https://namu.wiki/w/%EB%B3%91%EB%A0%AC%20%ED%86%B5%EC%8B%A0)  
 [병렬 통신 - 위키백과](https://ko.wikipedia.org/wiki/%EB%B3%91%EB%A0%AC_%ED%86%B5%EC%8B%A0)  
 [통신방식의 비교](https://powerdeng.tistory.com/11)  
-
+[LVDS 란?](https://vuzwa.tistory.com/entry/LVDS-%EB%9E%80)  
+[낮은 전압 차분 신호 - 위키백과](https://ko.wikipedia.org/wiki/%EB%82%AE%EC%9D%80_%EC%A0%84%EC%95%95_%EC%B0%A8%EB%B6%84_%EC%8B%A0%ED%98%B8)  
+[패리티 비트(Parity Bit)란 무엇인가?](https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=ansdbtls4067&logNo=220886661657)  
