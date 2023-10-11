@@ -48,7 +48,7 @@ PWM 신호가 출력되지 않았다.
 $ sudo cat /sys/kernel/debug/pwm
 ``` 
 이 명령어를 통해 현재 PWM status를 알 수 있다.  
-![PWM 상태 확인](/assets/img/post_img/Jetson_pwm_status_1.png.png)  
+![PWM 상태 확인](/assets/img/post_img/Jetson_pwm_status_1.png)  
 현재는 추가적인 명령어를 입력하지 않아 pwm-0과 pwm-2 모두 null로 표시되어 있다.
 
 ## 3. busybox 명령어를 통해 핀 사용 설정
