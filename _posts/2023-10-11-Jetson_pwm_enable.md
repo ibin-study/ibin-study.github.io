@@ -34,11 +34,11 @@ _Jetson Expansion Header Tool_
 
 ![Jetson 핀 설정](/assets/img/post_img/Jetson_Expansion_Header_Tool_4.png)
 _Jetson Expansion Header Tool_   
-**"Save pin changes**로 저장한다.
+**"Save pin changes"**로 저장한다.
 
 ![Jetson 핀 설정](/assets/img/post_img/Jetson_Expansion_Header_Tool_5.png)
 _Jetson Expansion Header Tool_  
-이제 **"Save and reboot to reconfigure pins**로 저장 후 재부팅한다.
+이제 **"Save and reboot to reconfigure pins"**로 저장 후 재부팅한다.
 
 >>🤔 대부분의 글에서 이 과정만으로 PWM 신호를 사용했다고 하지만 필자의 경우 오실로스코프로 확인해 본 결과
 PWM 신호가 출력되지 않았다.
@@ -84,7 +84,7 @@ $ echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
 ```bash: echo: write error: Invalid argument``` 오류가 뜬다.
 먼저 Period를 설정 후에 입력 시 오류가 발생하지 않는다.
 
-위 명령어를 입력 후 오실로스코프로 테스트 시 정상적으로 파형이 출력되는 것을 확인할 수 있었다.  
+위 명령어를 입력 후 Oscilloscope로 테스트 시 정상적으로 파형이 출력되는 것을 확인할 수 있었다.  
 ![오실로스코프 테스트](/assets/img/post_img/PWM_Oscilloscope.jpg){: w="400" h="300" } 
 _Oscilloscope로 테스트_
 
