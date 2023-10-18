@@ -35,6 +35,12 @@ ubuntu 18.04의 경우 기본적으로 **python >> Python 2.7.17, python3 >> Pyt
 
 설치를 완료했다고 바로 적용되는 것이 아니고 기본 버전을 변경해 주어야 한다.
 
+> ❗ **Python3.8보다 높은 버전 설치 시**에는 해당하는 패키지를 찾지 못하는 문제가 발생한다.  
+> ```$ sudo add-apt-repository ppa:deadsnakes/ppa``` 명령어를 통해 레포지토리를 등록 후에도 같은 문제가 발생.  
+> (필자의 경우 : **Jetson Nano**)  
+> 이러한 경우 wget 명령어 등으로 수동 설치하는 방법이 있는 것 같은데 시도해보진 않았다.  
+> 대신 3.8을 설치 하였다. (Jetson Nano)
+
 ---
 ## Python 기본 파일 확인
 ```$ ls -al /usr/bin/python``` 명령을 통해 python 이 가리키는 기본 파일을 확인할 수 있다.
