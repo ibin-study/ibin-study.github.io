@@ -1,6 +1,6 @@
 ---
 title: "[RADAR] RADAR의 기본 개념"
-date: 2023-12-12 13:00:00 +0900
+date: 2024-1-2 13:00:00 +0900
 categories: [Sensors, RADAR]
 tags: [Sensors, RADAR]     # TAG names should always be lowercase
 use_math: True
@@ -122,8 +122,13 @@ $v_0$: 매질에 대한 관측자의 속도 (관측자가 파원 쪽으로 움�
 >> 전자기파나 빛의 경우 관측자, 파원에 비해 속도가 훨씬 크므로 1차 근사치로 아래 식을 사용할 수 있다.
 1. 파원과 관측자가 전파 속도에 비해 매우 느리거나,
 2. 파원과 관측자의 거리가 전파의 파장에 비해 매우 큰 경우 유용하게 사용된다.  
-관측되는 주파수 **\\[f = \left( 1-\frac{v_{s,r}}{c}\right)f_0\\]**  
-주파수의 변경 **\\[\Delta f=-\frac{v_{s,r}}{c}f_0=-\frac{v_{s,r}}{\lambda _0}\\]**
+관측되는 주파수 $f$, 방출되는(파원의) 주파수 $f_0$, 방출되는(파원의) 파장 ${\lambda_0}$  
+관측되는 주파수 \\[ f = \left( 1-\frac{v_{s,r}}{c}\right)f_0 \\]
+주파수의 변경 \\[ \Delta f=-\frac{v_{s,r}}{c}f_0=-\frac{v_{s,r}}{\lambda_0} \\]
+
+>> 여기서, $ v_{s,r} = v_s - v_r $ 즉, **관측자에 대한 파원의 속도**  
+파원이 관측자 쪽으로 이동할 경우 음의 값, 멀어질 경우 양의 값을 가진다.
+
 
 ### 연속파 레이더란?
 연속파 레이더의 경우 펄스 레이더와 달리 수신기가 신호를 받는 중에도 송신신호를 지속적으로 보내고,    
@@ -154,6 +159,107 @@ FMCW는 기본적으로 **Chirp(Linear Frequency Modulation, LFM) 파형**를 �
 ![LFM 파형 그림](/assets/img/post_img/LFM_signal.png)
 _LFM 파형 그림_
 
+### FMCW RADAR 작동방식
+위에서 언급한 바와 같이 FMCW는 시간정보를 얻기 위해 주파수 변조를 적용한 것이고, 따라서 시간은 **송신 신호와 수신 신호 사이의 주파수 차이**로부터 얻을 수 있다.  
+![FMCW 레이다의 블록선도](/assets/img/post_img/FMCW_Radar_diagram.png)
+_FMCW 레이다의 블록선도 [출처 : [Radar 센서](https://blog.naver.com/iotsensor/221179624478)]_
+
+위 블록선도는 2개의 안테나가 설치된 경우이다.  
+>실제로는 Digital 신호를 Analog로 바꿔주는 DAC단이 있고 변환 시에 sampling rate에 따라 다양한 harmonic 성분을 갖기 때문에
+이를 제거하기 위한 LPF(Low Pass Filter)를 거친다.
+적절히 증폭된 뒤에 Carrier 주파수를 실어 주고 원치 않는 신호를 제거 하기 위해 BPF (Band Pass Filter)를 거친 후 증폭되어 안테나를 통해 전송된다.
+표적에 반사된 신호는 수신 안테나를 통해 획득된다. 
+신호는 적절히 증폭된 뒤 Carrier 주파수가 제거된 뒤 Filtering을 거쳐 Digital로 변환되어 표적의 거리를 알 수 있도록 하는 신호처리를 거친다.  
+[출처 : [레이더 시스템 설계 및 검증] LFM(chirp) 파형 Pulse compression (Convolution 방법)](https://engineerns.tistory.com/entry/%EB%A0%88%EC%9D%B4%EB%8D%94-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B2%80%EC%A6%9D-Pulse-Compression-LFM-%EB%A0%88%EC%9D%B4%EB%8D%94)  
+
+위 블록선도에서 되돌아온 신호는 $f_1 \pm f_d$인데 +의 경우 목표물이 접근하고 있는 것이고 -의 경우 목표물이 멀어지고 있다는 것을 의미한다.
+
+물체가 정지한 경우와 물체가 움직이는 경우 두가지로 나누어서 설명하겠다.
+
+#### 1️⃣ 물체가 정지해 있는 경우 (상대속도 = 0)  
+이 경우에는 도플러 효과가 발생하지 않으므로 $f_d = 0$ 이다.  
+
+![물체 정지한 경우 파형 그래프](/assets/img/post_img/FMCW_wo_doppler.png)
+_물체 정지한 경우 그래프 [출처 : [Radar 센서](https://blog.naver.com/iotsensor/221179624478)]_
+
+레이더 신호가 LFM이라면 위 그래프와 같이 주파수가 선형적으로 변하게 되는데 이 경우 수신기에서 받은 신호는 점선과 같다.   
+$t_1$에서 송신한 $f_1$주파수는 $t_2$에서 수신하게 되는데, 이때의 송신 주파수는 $f_2$로 변하게 된다. 
+블록선도에서 볼 수 있듯이 수신된 신호$f_1$은 수신 시 송신한 신호인 $f_2$와 믹서를 통해 혼합되게 되고,
+이는 송신 주파수와 수신 주파수의 차이인 **비트 주파수$f_b$**를 생성한다.
+
+> 💡 비트 주파수 (Beat Frequency)
+>> FMCW 레이더 시스템에서
+\\[ \frac{B}{\Delta t}t_R - f_d \\]
+를 비트 주파수라고 하며 송신 신호와 수신 신호의 주파수 차를 이야기한다.  
+앞부분의 거리에 의한 지연시간 성분($f_R$)과  
+뒷부분의 속도 차이로인한 도플러 주파수 성분($f_d$)으로 이루어져있다.  
+
+
+이 경우 비트 주파수는 $f_2-f_1$이 된다. 물체가 정지해 있으므로 비트 주파수는 거리요소만 가지고 있다. 
+따라서 $f_R = f_b = f_2 - f_1$ 이 된다.  
+
+거리 $R$을 구하기 위해서는 위 그래프에서 송신신호와 수신신호의 주파수 차이, 전자기파의 속도(c), 그래프의 기울기를 알아야 한다.
+레이더 시스템을 다자인할 때 주파수의 변화는 알고 있으므로 **$\Delta f$ (진폭) 와 $f_m$ (진동수, 주기)은 알고있는 값**이다. 
+따라서 **그래프의 기울기를 알 수 있으므로** 수신시간 $t_2$에서 비트 주파수인 $f_b$만 측정하면 물체까지의 거리를 알 수 있다.  
+\\[ R = \frac{c t_R}{2} \\]
+\\[ t_R : f_R = \frac{1}{2f_m} : B \\]
+\\[ t_R = \frac{f_R}{2f_m B} \\]
+\\[ \therefore R = \frac{c f_R}{4 f_m B} \\]
+
+#### 2️⃣ 물체가 움직이는 경우 ($f_d \ne 0$)  
+이 경우에는 물체의 움직임으로 인해 상대속도가 발생하여 도플러 효과가 비트 주파수에 포함되는 경우가 된다.
+따라서 도플러 효과로 인한 속도 정보와 거리 정보를 분리해야 한다.  
+위에서 기술한 비트 주파수 식을 다시 써보면
+\\[ f_2 - f_1 - f_d \\]
+와 같은데, 여기서 $f_d$ 가 양수일 경우 물체가 레이더에 가까워지고 있는 것이고,  
+$f_d$ 가 음수일 경우 물체가 레이더로부터 멀어지고 있는 것이다.  
+레이더에 물체가 가까워지는 상황에서의 파형을 그려보면 아래와 같다.  
+![물체가 움직일 때 파형 그래프](/assets/img/post_img/FMCW_w_doppler.png) 
+_물체가 움직일 때 파형 그래프_  
+
+물체 정지 시에 거리 식을 $f_R$에 대해 다시 써보면 아래와 같다.
+\\[ f_R = \frac{4R f_m B}{c} \\]
+
+또한 [도플러 효과](#도플러-효과)에 나온 주파수의 변경 식을 활용해서 $f_d$를 표현할 수 있는데,  
+[위키백과](https://ko.wikipedia.org/wiki/%EB%8F%84%ED%94%8C%EB%9F%AC_%ED%9A%A8%EA%B3%BC) 상에서 설명하는 도플러 효과는 파원에서 관측자로 오기만 하는
+즉, 편도 경로에서의 식이다. 그러나 레이더의 경우 **물체에서 반사되어 나오는 파장을 관측하는 것이므로 왕복 경로**가 된다.  
+따라서, 위 "주파수의 변경" 식에 2를 곱해주어야 한다.  
+또한, 레이더의 경우 파원이 곧 관측자이고, 관측자에게 이동하는 물체의 속도를 측정하는 것이므로 부호 역시 바뀌어야 한다.  
+\\[ f_d = \frac{2 v_r}{c}f_0 =\frac{2 v_r}{\lambda_0} \\]
+$f_0$ = 송신한 진동수, $\lambda_0$ = 송신한 파장, $v_r$ = 물체의 상대속도  
+
+상승 구간에서의 주파수 차이 $ \Delta f_1 $
+\\[ \Delta f_1 = f_R - \Delta f_d =  \frac{2}{c}(2R f_m B - f_0 v_r) \\]
+
+하강 구간에서의 주파수 차이 $ \Delta f_2 $
+\\[ \Delta f_2 = f_R + \Delta f_d =  \frac{2}{c}(2R f_m B + f_0 v_r) \\]
+
+위 두 식을 빼주면 **상대속도**를 구할 수 있다.
+\\[ \Delta f_2 - \Delta f_1 = \frac{4}{c}f_0 v_r \\]
+\\[ \therefore v_r = \frac{c}{4f_0}(\Delta f_2 - \Delta f_1) \\]
+
+위 두 식을 더할 경우 **거리**도 구할 수 있다.
+\\[ \Delta f_2 + \Delta f_1 = \frac{8R f_m B}{c} \\]
+\\[ \therefore R = \frac{c}{8R f_m B}(\Delta f_2 + \Delta f_1) \\]
+
+### 물체 위치의 각도 구하기
+지금까지 기술한 공식들로 물체의 거리와 상대속도를 모두 구할 수 있다.
+그러나, **거리만 알고 있을 경우 레이더 반경에 포함되는 모든 거리상에 물체가 존재할 수 있다는 얘기**가 된다.
+따라서, 물체의 위치를 정확히 특정하기 위해서는 물체의 각도를 알아야 한다.  
+우리가 흔히 사용하는 레이더 센서에는 송신 안테나와 수신 안테나 하나씩 붙어있는 것이 아니고, 각각의 안테나가 여러개가 붙어있다.
+**TI 사의 AWR1843AOPEVM 제품 User guide** 사진을 예로 들면 아래와 같다.  
+![AWR1843AOP Antenna Placement MIMO Array](/assets/img/post_img/TI_AWR1843_Antenna_placement.png)   
+_출처 : TEXAS INSTRUMENTS AWR1843AoP EVM User’s Guide_
+
+여기서 MIMO는 **Multiple-Input Multiple-Output**을 말한다.  
+7개의 안테나를 활용하여 12요소의 가상 안테나 배열을 생성하여 2D가 아닌 3D, 또는 그 이상의 더 높은 공간 분해능, 각도 분해능을 얻을 수 있다.  
+> 😫 이 부분은 더 공부가 필요해서 이후에 다시 정리할 계획이다...
+
+이처럼 안테나를 여러 개 활용하여 사용하게 되는데 지금은 개념과 안테나 원리에 대한 정리이므로 간단한 예시를 통해 이해해 보자.  
+송신 안테나(Transmitter, Tx) 1개와 수신 안테나(Receiver, Rx) 2개가 2차원 공간 상에 있는 상태이다.  
+![각도 설명을 위한 간단한 예시](/assets/img/post_img/Radar_angle_antenna.png)  
+이러한 경우
+
 
 
 ## 마치며
@@ -163,7 +269,7 @@ _LFM 파형 그림_
 - 안테나 형태 : [위](#안테나-형태에-따른-분류)에 간단하게 기술하였음.
 - 편파 응용 형태
 - 용도
-- 신호처리 방식
+- 신호처리 방식  
 등 여러 분류가 있으나 이는 추후에 시간이 된다면 정리할 예정이다.  
 
 ## 참고자료
@@ -177,4 +283,6 @@ _LFM 파형 그림_
 [위키백과 - 도플러 효과](https://ko.wikipedia.org/wiki/%EB%8F%84%ED%94%8C%EB%9F%AC_%ED%9A%A8%EA%B3%BC)  
 [[레이더] 레이더의 분류](https://electric-lab.tistory.com/260)  
 [[레이더 시스템 설계 및 검증] LFM (Chirp) 파형의 이해](https://engineerns.tistory.com/entry/%EB%A0%88%EC%9D%B4%EB%8D%94-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B2%80%EC%A6%9D-LFM-Chirp-%ED%8C%8C%ED%98%95%EC%9D%98-%EC%9D%B4%ED%95%B4)  
+[[레이더 시스템 설계 및 검증] LFM(chirp) 파형 Pulse compression (Convolution 방법)](https://engineerns.tistory.com/entry/%EB%A0%88%EC%9D%B4%EB%8D%94-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B2%80%EC%A6%9D-Pulse-Compression-LFM-%EB%A0%88%EC%9D%B4%EB%8D%94)  
 [자율주행 자동차 FMCW 레이다 (RADAR)](https://m.blog.naver.com/lagrange0115/223007314456?isInf=true)  
+[FMCW radar simulation in HFSS SBR+](https://moasoftware.co.kr/ansys/fmcw-radar-simulation-in-hfss-sbr/)
