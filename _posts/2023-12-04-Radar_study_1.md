@@ -257,10 +257,14 @@ _출처 : TEXAS INSTRUMENTS AWR1843AoP EVM User’s Guide_
 
 이처럼 안테나를 여러 개 활용하여 사용하게 되는데 지금은 개념과 안테나 원리에 대한 정리이므로 간단한 예시를 통해 이해해 보자.  
 송신 안테나(Transmitter, Tx) 1개와 수신 안테나(Receiver, Rx) 2개가 2차원 공간 상에 있는 상태이다.  
-![각도 설명을 위한 간단한 예시](/assets/img/post_img/Radar_angle_antenna.png)  
-이러한 경우
+![각도 설명을 위한 간단한 예시](/assets/img/post_img/Radar_angle_antenna.png)
+_각도 설염을 위한 그림 예시_  
+이러한 경우 Rx 2 레이더가 Rx 1 레이더에 비해 $\Delta R$ 만큼 멀리 있기 때문에 그만큼 신호의 위상이 늦어진다.  
+이로 인해 수신 안테나간의 위상차이가 발생하게 되는데 이는 아래 식과 같다.
+\\[ \frac{\Delta\Phi}{2\pi} = \frac{\Delta R}{\lambda} \\]
+\\[ \therefore \Delta\Phi = \frac{2\pi\Delta R}{\lambda} \\]
 
-
+또한 그림 상에서 확인할 수 있듯이 $\Delta R = 0.5 \$
 
 ## 마치며
 전자기파 송신 형태에 따른 분류 외에도 여러 분류방식이 있다.  
