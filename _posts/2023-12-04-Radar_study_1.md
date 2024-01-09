@@ -248,7 +248,7 @@ $f_0$ = 송신한 진동수, $\lambda_0$ = 송신한 파장, $v_r$ = 물체의 �
 따라서, 물체의 위치를 정확히 특정하기 위해서는 물체의 각도를 알아야 한다.  
 우리가 흔히 사용하는 레이더 센서에는 송신 안테나와 수신 안테나 하나씩 붙어있는 것이 아니고, 각각의 안테나가 여러개가 붙어있다.
 **TI 사의 AWR1843AOPEVM 제품 User guide** 사진을 예로 들면 아래와 같다.  
-![AWR1843AOP Antenna Placement MIMO Array](/assets/img/post_img/TI_AWR1843_Antenna_placement.png)   
+![AWR1843AOP Antenna Placement MIMO Array](/assets/img/post_img/TI_AWR1843_Antenna_placement.png)
 _출처 : TEXAS INSTRUMENTS AWR1843AoP EVM User’s Guide_
 
 여기서 MIMO는 **Multiple-Input Multiple-Output**을 말한다.  
@@ -264,7 +264,12 @@ _각도 설염을 위한 그림 예시_
 \\[ \frac{\Delta\Phi}{2\pi} = \frac{\Delta R}{\lambda} \\]
 \\[ \therefore \Delta\Phi = \frac{2\pi\Delta R}{\lambda} \\]
 
-또한 그림 상에서 확인할 수 있듯이 $\Delta R = 0.5 \$
+또한 그림 상에서 확인할 수 있듯이 $\Delta R = 0.5 \lambda \sin\theta$ 이다.  
+이를 위상차이 식에 대입 후 각도에 대해 정리하면 아래와 같다.  
+\\[ \Delta\Phi = \pi\sin \theta \\]
+\\[ \theta = \arcsin (\frac{\Delta\Phi}{\pi}) \\]
+
+수신 안테나 간의 거리가 $0.5 \lambda$ 일 경우 위 식처럼 깔끔하게 정리된다.
 
 ## 마치며
 전자기파 송신 형태에 따른 분류 외에도 여러 분류방식이 있다.  
@@ -275,6 +280,8 @@ _각도 설염을 위한 그림 예시_
 - 용도
 - 신호처리 방식  
 등 여러 분류가 있으나 이는 추후에 시간이 된다면 정리할 예정이다.  
+
+또한 이후 레이더 방정식과 안테나 배열을 통한 해상도 증가 등 좀 더 심화된 부분을 공부해나갈 예정이다.
 
 ## 참고자료
 [신의 눈, 레이더(Radar)](https://www.ksakosmos.com/post/%EC%8B%A0%EC%9D%98-%EB%88%88-%EB%A0%88%EC%9D%B4%EB%8D%94-radar)   
@@ -289,4 +296,4 @@ _각도 설염을 위한 그림 예시_
 [[레이더 시스템 설계 및 검증] LFM (Chirp) 파형의 이해](https://engineerns.tistory.com/entry/%EB%A0%88%EC%9D%B4%EB%8D%94-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B2%80%EC%A6%9D-LFM-Chirp-%ED%8C%8C%ED%98%95%EC%9D%98-%EC%9D%B4%ED%95%B4)  
 [[레이더 시스템 설계 및 검증] LFM(chirp) 파형 Pulse compression (Convolution 방법)](https://engineerns.tistory.com/entry/%EB%A0%88%EC%9D%B4%EB%8D%94-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84-%EB%B0%8F-%EA%B2%80%EC%A6%9D-Pulse-Compression-LFM-%EB%A0%88%EC%9D%B4%EB%8D%94)  
 [자율주행 자동차 FMCW 레이다 (RADAR)](https://m.blog.naver.com/lagrange0115/223007314456?isInf=true)  
-[FMCW radar simulation in HFSS SBR+](https://moasoftware.co.kr/ansys/fmcw-radar-simulation-in-hfss-sbr/)
+[FMCW radar simulation in HFSS SBR+](https://moasoftware.co.kr/ansys/fmcw-radar-simulation-in-hfss-sbr/)  
