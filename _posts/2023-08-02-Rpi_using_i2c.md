@@ -1,8 +1,8 @@
 ---
 title: "[I2C] Raspberry Pi에서 I2C 사용해 BNO055 모듈 사용"
 date: 2023-08-02 15:00:00 +0900
-categories: [Communication Protocol, I2C]
-tags: [Communication Protocol, I2C, Raspberry Pi]  # TAG names should always be lowercase
+categories: [Communication Protocol, Application]
+tags: [Application, I2C, Raspberry Pi]  # TAG names should always be lowercase
 ---
 
 ## 0. I2C란??

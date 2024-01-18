@@ -1,8 +1,8 @@
 ---
 title: "[I2C] I2C 통신이란??"
 date: 2023-07-27 15:00:00 +0900
-categories: [Communication Protocol, I2C]
-tags: [Communication Protocol, I2C]  # TAG names should always be lowercase
+categories: [Communication Protocol, Serial]
+tags: [Communication Protocol, Serial, I2C]  # TAG names should always be lowercase
 ---
 
 ## 1. I2C란?
@@ -49,7 +49,7 @@ I2C 통신은 **시작 신호, 데이터 신호, 정지 신호**로 이루어진
 ![I2C Timing Diagram](/assets/img/post_img/i2c_timing_diagram.png)
 _I2C 통신방식 [출처: [Wikipedia - I2C](https://en.wikipedia.org/wiki/I%C2%B2C)]_  
 
-그림에서 볼 수 있듯이 SDA와 SCL 모두 High 상태가 기본값이고 이후 **SCA 신호가 Low로 떨어질 때를 시작신호**로 받아들인다.
+그림에서 볼 수 있듯이 SDA와 SCL 모두 High 상태가 기본값이고 이후 **SDA 신호가 Low로 떨어질 때를 시작신호**로 받아들인다.
 이후 SCL 선으로 클럭신호를 만들게 되고, 
 <span style="color:white; background-color:RoyalBlue">클럭 신호가 Low일 때가 SDA 신호를 비트신호로 바꾸는 시간(파란색 부분)</span>, 
 <span style="color:white; background-color:LimeGreen">클럭 신호가 High일 때가 SDA신호를 읽는 시간이 된다.(녹색 부분)</span> 
